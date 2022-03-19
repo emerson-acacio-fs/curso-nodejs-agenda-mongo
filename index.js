@@ -76,6 +76,11 @@ app.post("/create", async (req, res) => {
   }
 });
 
+const pollTime = 5 * 6000 * 5;
+setInterval(async () => {
+  await appointmentService.SandNotification();
+}, pollTime);
+
 app.listen(8686, () => {
   console.log("Servidor rodando");
 });
